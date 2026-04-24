@@ -9,7 +9,6 @@ It models real-world hospital workflows where multiple receptionist desks handle
 
 A Qt-based GUI is used to visualize queue activity, thread execution, and system performance in real time.
 
---------------------------------------------------------
 
 ## Key Features
 
@@ -21,7 +20,6 @@ A Qt-based GUI is used to visualize queue activity, thread execution, and system
 - Configurable buffer size, thread count, and processing delays
 - Performance monitoring (throughput, wait time, thread utilization)
 
---------------------------------------------------------
 
 ## System Architecture
 
@@ -41,7 +39,6 @@ The system consists of three main components:
 
 The GUI runs on the main thread and receives updates from worker threads using thread-safe signals.
 
---------------------------------------------------------
 
 ## Technologies Used
 
@@ -51,7 +48,6 @@ The GUI runs on the main thread and receives updates from worker threads using t
 - Qt 6 (GUI framework)
 - Linux (Ubuntu 22.04+)
 
---------------------------------------------------------
 
 ## Synchronization Strategy
 
@@ -60,7 +56,6 @@ The GUI runs on the main thread and receives updates from worker threads using t
 - `sem_wait(full)` ensures consumers wait when buffer is empty
 - Circular buffer prevents memory overhead and supports continuous operation
 
---------------------------------------------------------
 
 ## Testing and Evaluation
 
