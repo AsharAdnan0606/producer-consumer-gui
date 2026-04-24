@@ -10,6 +10,7 @@ It models real-world hospital workflows where multiple receptionist desks handle
 A Qt-based GUI is used to visualize queue activity, thread execution, and system performance in real time.
 
 
+
 ## Key Features
 
 - Implementation of Producer–Consumer problem using POSIX pthreads
@@ -19,6 +20,7 @@ A Qt-based GUI is used to visualize queue activity, thread execution, and system
 - Event logging system with timestamps
 - Configurable buffer size, thread count, and processing delays
 - Performance monitoring (throughput, wait time, thread utilization)
+
 
 
 ## System Architecture
@@ -40,6 +42,7 @@ The system consists of three main components:
 The GUI runs on the main thread and receives updates from worker threads using thread-safe signals.
 
 
+
 ## Technologies Used
 
 - C++
@@ -49,12 +52,14 @@ The GUI runs on the main thread and receives updates from worker threads using t
 - Linux (Ubuntu 22.04+)
 
 
+
 ## Synchronization Strategy
 
 - Mutex locks are used to protect shared buffer access
 - `sem_wait(empty)` ensures producers wait when buffer is full
 - `sem_wait(full)` ensures consumers wait when buffer is empty
 - Circular buffer prevents memory overhead and supports continuous operation
+  
 
 
 ## Testing and Evaluation
