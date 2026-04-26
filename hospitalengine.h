@@ -9,7 +9,7 @@
 #include <atomic>
 #include <vector>
 
-// ── Configuration ─────────────────────────────────────────────────────────────
+// Configuration
 #define NUM_DEPTS       4
 #define BUFFER_SIZE     8
 #define NUM_PRODUCERS   2
@@ -26,14 +26,14 @@ static const int PROC_MAX_MS[NUM_DEPTS] = { 1200, 2500, 4000, 1500 };
 static const int ARRIVAL_MIN_MS = 600;
 static const int ARRIVAL_MAX_MS = 1800;
 
-// ── Patient record ─────────────────────────────────────────────────────────────
+// Patient record
 struct Patient {
     int     id;
     int     dept;
     qint64  enqueue_ms;   // QDateTime::currentMSecsSinceEpoch()
 };
 
-// ── Event types emitted to the GUI ────────────────────────────────────────────
+// Event types emitted to the GUI 
 enum class EventType { Enqueued, Dequeued, Processed };
 
 struct PatientEvent {
@@ -45,9 +45,7 @@ struct PatientEvent {
     int       bufferFill;   // current occupancy of that dept buffer
 };
 
-// ══════════════════════════════════════════════════════════════════════════════
 //  ProducerThread
-// ══════════════════════════════════════════════════════════════════════════════
 class HospitalEngine;
 
 class ProducerThread : public QThread {
@@ -68,9 +66,7 @@ private:
     std::atomic<bool> m_running{true};
 };
 
-// ══════════════════════════════════════════════════════════════════════════════
 //  ConsumerThread
-// ══════════════════════════════════════════════════════════════════════════════
 class ConsumerThread : public QThread {
     Q_OBJECT
 public:
@@ -89,9 +85,7 @@ private:
     std::atomic<bool> m_running{true};
 };
 
-// ══════════════════════════════════════════════════════════════════════════════
 //  HospitalEngine  — owns the shared buffers and synchronisation primitives
-// ══════════════════════════════════════════════════════════════════════════════
 class HospitalEngine : public QObject {
     Q_OBJECT
 public:
