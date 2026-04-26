@@ -2,9 +2,7 @@
 #include <QRandomGenerator>
 #include <QThread>
 
-// ══════════════════════════════════════════════════════════════════════════════
 //  HospitalEngine
-// ══════════════════════════════════════════════════════════════════════════════
 HospitalEngine::HospitalEngine(QObject* parent)
     : QObject(parent)
 {
@@ -135,9 +133,7 @@ void HospitalEngine::onStatsTimer() {
     );
 }
 
-// ══════════════════════════════════════════════════════════════════════════════
 //  ProducerThread
-// ══════════════════════════════════════════════════════════════════════════════
 ProducerThread::ProducerThread(HospitalEngine* engine, int id, QObject* parent)
     : QThread(parent), m_engine(engine), m_id(id) {}
 
@@ -170,9 +166,7 @@ void ProducerThread::run() {
     }
 }
 
-// ══════════════════════════════════════════════════════════════════════════════
 //  ConsumerThread
-// ══════════════════════════════════════════════════════════════════════════════
 ConsumerThread::ConsumerThread(HospitalEngine* engine, int deptId, QObject* parent)
     : QThread(parent), m_engine(engine), m_deptId(deptId) {}
 
